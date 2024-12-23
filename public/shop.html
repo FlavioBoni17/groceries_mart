@@ -1,355 +1,377 @@
 <!DOCTYPE html>
-<html>
-
+<html lang="en">
 <head>
-  <!-- Basic -->
-  <meta charset="utf-8" />
-  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <!-- Mobile Metas -->
-  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
-  <!-- Site Metas -->
-  <meta name="keywords" content="" />
-  <meta name="description" content="" />
-  <meta name="author" content="" />
-  <link rel="shortcut icon" href="images/favicon.png" type="image/x-icon">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GroceriesMart</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="css/style.css">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+        }
 
-  <title>
-    GroceriesMart
-  </title>
+        .search-header {
+            display: flex;
+            align-items: center;
+            background-color: #f5f5f5;
+            padding: 10px 20px;
+            border-bottom: 1px solid #ddd;
+        }
 
-  <!-- slider stylesheet -->
-  <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css" />
+        .search-header .logo {
+            font-size: 24px;
+            font-weight: bold;
+            color: #4361ee;
+            margin-right: 20px;
+        }
 
-  <!-- bootstrap core css -->
-  <link rel="stylesheet" type="text/css" href="css/bootstrap.css" />
+        .search-header .category-dropdown {
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            padding: 5px 10px;
+            margin-right: 10px;
+            background-color: white;
+        }
 
-  <!-- Custom styles for this template -->
-  <link href="css/style.css" rel="stylesheet" />
-  <!-- responsive style -->
-  <link href="css/responsive.css" rel="stylesheet" />
+        .search-header .search-container {
+            position: relative;
+            flex-grow: 1;
+        }
+
+        .search-header #live-search {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            font-size: 14px;
+        }
+
+        .search-header .cart {
+            margin-left: 20px;
+            font-size: 18px;
+            color: black;
+            text-decoration: none;
+        }
+
+        .search-header .auth-buttons a {
+            margin-left: 10px;
+            text-decoration: none;
+            font-size: 14px;
+            color: #4361ee;
+            border: 1px solid #4361ee;
+            border-radius: 5px;
+            padding: 5px 10px;
+            transition: background-color 0.3s, color 0.3s;
+        }
+
+        .search-header .auth-buttons a:hover {
+            background-color: #4361ee;
+            color: white;
+        }
+
+        #search-results {
+            position: absolute;
+            top: 100%;
+            left: 0;
+            background: white;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            margin-top: 5px;
+            max-height: 200px;
+            overflow-y: auto;
+            width: 100%;
+            z-index: 1000;
+        }
+
+        #search-results li {
+            padding: 10px;
+            cursor: pointer;
+            list-style: none;
+            border-bottom: 1px solid #eee;
+        }
+
+        #search-results li:hover {
+            background: #ffcc00;
+            color: white;
+        }
+    </style>
 </head>
-
 <body>
-  <div class="hero_area">
-
-
-  </div>
-  <!-- end hero area -->
-
-  <!-- shop section -->
-
-  <section class="shop_section layout_padding">
-    <div class="container">
-      <div class="heading_container heading_center">
-        <h2>
-          Produk
-        </h2>
-      </div>
-      <div class="row">
-        <div class="col-sm-6 col-md-4 col-lg-3">
-          <div class="box">
-            <a href="">
-              <div class="img-box">
-                <img src="images/filma.jpg" alt="">
-              </div>
-              <div class="detail-box">
-                <h6>
-                  Filma
-                </h6>
-                <h6>
-                  Harga
-                  <span>
-                    Rp.9.000
-                  </span>
-                </h6>
-              </div>
-              <div class="new">
-                <span>
-                  Baru
-                </span>
-              </div>
-            </a>
-          </div>
+    <header class="search-header">
+        <div class="logo">GroceriesMart</div>
+        <select class="category-dropdown">
+            <option value="all">Semua Kategori</option>
+            <option value="buah">Buah</option>
+            <option value="sayur">Sayur</option>
+            <option value="minuman">Minuman</option>
+            <option value="snack">Snack</option>
+        </select>
+        <div class="search-container">
+            <input type="text" id="live-search" placeholder="Cari produk..." onkeyup="liveSearch()">
+            <ul id="search-results"></ul>
         </div>
-        <div class="col-sm-6 col-md-4 col-lg-3">
-          <div class="box">
-            <a href="">
-              <div class="img-box">
-                <img src="images/oreo.jpg" alt="">
-              </div>
-              <div class="detail-box">
-                <h6>
-                  Oreo
-                </h6>
-                <h6>
-                  Harga
-                  <span>
-                    Rp.5.000
-                  </span>
-                </h6>
-              </div>
-              <div class="new">
-                <span>
-                  Baru
-                </span>
-              </div>
-            </a>
-          </div>
-        </div>
-        <div class="col-sm-6 col-md-4 col-lg-3">
-          <div class="box">
-            <a href="">
-              <div class="img-box">
-                <img src="images/indomiegoreng.jpg" alt="">
-              </div>
-              <div class="detail-box">
-                <h6>
-                  Indomie Goreng
-                </h6>
-                <h6>
-                  Harga
-                  <span>
-                    Rp.3,500
-                  </span>
-                </h6>
-              </div>
-              <div class="new">
-                <span>
-                  Baru
-                </span>
-              </div>
-            </a>
-          </div>
-        </div>
-        <div class="col-sm-6 col-md-4 col-lg-3">
-          <div class="box">
-            <a href="">
-              <div class="img-box">
-                <img src="images/frisianflag.jpg" alt="">
-              </div>
-              <div class="detail-box">
-                <h6>
-                  Frisian Flag
-                </h6>
-                <h6>
-                  Harga
-                  <span>
-                    Rp.11.000
-                  </span>
-                </h6>
-              </div>
-              <div class="new">
-                <span>
-                  Baru
-                </span>
-              </div>
-            </a>
-          </div>
-        </div>
-        <div class="col-sm-6 col-md-4 col-lg-3">
-          <div class="box">
-            <a href="">
-              <div class="img-box">
-                <img src="images/jolly.jpg" alt="">
-              </div>
-              <div class="detail-box">
-                <h6>
-                  Jolly
-                </h6>
-                <h6>
-                  Harga
-                  <span>
-                    Rp.16.500
-                  </span>
-                </h6>
-              </div>
-              <div class="new">
-                <span>
-                  Baru
-                </span>
-              </div>
-            </a>
-          </div>
-        </div>
-        <div class="col-sm-6 col-md-4 col-lg-3">
-          <div class="box">
-            <a href="">
-              <div class="img-box">
-                <img src="images/aoka.jpg" alt="">
-              </div>
-              <div class="detail-box">
-                <h6>
-                  Roti Aoka
-                </h6>
-                <h6>
-                  Harga
-                  <span>
-                    Rp.3,000
-                  </span>
-                </h6>
-              </div>
-              <div class="new">
-                <span>
-                  Baru
-                </span>
-              </div>
-            </a>
-          </div>
-        </div>
-        <div class="col-sm-6 col-md-4 col-lg-3">
-          <div class="box">
-            <a href="">
-              <div class="img-box">
-                <img src="images/abcsaos.jpg" alt="">
-              </div>
-              <div class="detail-box">
-                <h6>
-                  Saos ABC
-                </h6>
-                <h6>
-                  Harga
-                  <span>
-                    Rp.8,500
-                  </span>
-                </h6>
-              </div>
-              <div class="new">
-                <span>
-                  Baru
-                </span>
-              </div>
-            </a>
-          </div>
-        </div>
-        <div class="col-sm-6 col-md-4 col-lg-3">
-          <div class="box">
-            <a href="">
-              <div class="img-box">
-                <img src="images/goodday.jpg" alt="">
-              </div>
-              <div class="detail-box">
-                <h6>
-                  Kopi Goodday
-                </h6>
-                <h6>
-                  Harga
-                  <span>
-                    Rp.2,000
-                  </span>
-                </h6>
-              </div>
-              <div class="new">
-                <span>
-                  Baru
-                </span>
-              </div>
-            </a>
-          </div>
-        </div>
-      </div>
-      <div class="btn-box">
-        <a href="">
-          Lihat Semua Produk
+        <a href="/cart" class="cart">
+            <i class="fa fa-shopping-cart"></i>
         </a>
-      </div>
-    </div>
-  </section>
-
-  <!-- end shop section -->
-
-  <section class="info_section  layout_padding2-top">
-    <div class="social_container">
-      <div class="social_box">
-        <a href="">
-          <i class="fa fa-facebook" aria-hidden="true"></i>
-        </a>
-        <a href="">
-          <i class="fa fa-twitter" aria-hidden="true"></i>
-        </a>
-        <a href="">
-          <i class="fa fa-instagram" aria-hidden="true"></i>
-        </a>
-        <a href="">
-          <i class="fa fa-youtube" aria-hidden="true"></i>
-        </a>
-      </div>
-    </div>
-    <div class="info_container ">
+        <div class="auth-buttons">
+            <a href="{{url('/login')}}">Login</a>
+            <a href="{{url('/register')}}">Register</a>
+        </div>
+    </header>
+    <section class="shop_section layout_padding">
       <div class="container">
+        <div class="heading_container heading_center">
+          <h2>
+            Produk
+          </h2>
+        </div>
         <div class="row">
-          <div class="col-md-6 col-lg-3">
-            <h6>
-              TENTANG KAMI
-            </h6>
-            <p>
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed doLorem ipsum dolor sit amet, consectetur adipiscing elit, sed doLorem ipsum dolor sit amet,
-            </p>
-          </div>
-          <div class="col-md-6 col-lg-3">
-            <div class="info_form ">
-              <h5>
-                Newsletter
-              </h5>
-              <form action="#">
-                <input type="email" placeholder="Enter your email">
-                <button>
-                  Subscribe
-                </button>
-              </form>
+          <div class="col-sm-6 col-md-4 col-lg-3">
+            <div class="box">
+              <a href="">
+                <div class="img-box">
+                  <img src="images/filma.jpg" alt="">
+                </div>
+                <div class="detail-box">
+                  <h6>
+                    Filma
+                  </h6>
+                  <h6>
+                    Harga
+                    <span>
+                      Rp.9.000
+                    </span>
+                  </h6>
+                </div>
+                <div class="new">
+                  <span>
+                    Baru
+                  </span>
+                </div>
+              </a>
             </div>
           </div>
-          <div class="col-md-6 col-lg-3">
-            <h6>
-              BUTUH BANTUAN
-            </h6>
-            <p>
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed doLorem ipsum dolor sit amet, consectetur adipiscing elit, sed doLorem ipsum dolor sit amet,
-            </p>
+          <div class="col-sm-6 col-md-4 col-lg-3">
+            <div class="box">
+              <a href="">
+                <div class="img-box">
+                  <img src="images/oreo.jpg" alt="">
+                </div>
+                <div class="detail-box">
+                  <h6>
+                    Oreo
+                  </h6>
+                  <h6>
+                    Harga
+                    <span>
+                      Rp.5.000
+                    </span>
+                  </h6>
+                </div>
+                <div class="new">
+                  <span>
+                    Baru
+                  </span>
+                </div>
+              </a>
+            </div>
           </div>
-          <div class="col-md-6 col-lg-3">
-            <h6>
-              KONTAK KAMI
-            </h6>
-            <div class="info_link-box">
+          <div class="col-sm-6 col-md-4 col-lg-3">
+            <div class="box">
               <a href="">
-                <i class="fa fa-map-marker" aria-hidden="true"></i>
-                <span> Gegerkalomg </span>
+                <div class="img-box">
+                  <img src="images/indomiegoreng.jpg" alt="">
+                </div>
+                <div class="detail-box">
+                  <h6>
+                    Indomie Goreng
+                  </h6>
+                  <h6>
+                    Harga
+                    <span>
+                      Rp.3,500
+                    </span>
+                  </h6>
+                </div>
+                <div class="new">
+                  <span>
+                    Baru
+                  </span>
+                </div>
               </a>
+            </div>
+          </div>
+          <div class="col-sm-6 col-md-4 col-lg-3">
+            <div class="box">
               <a href="">
-                <i class="fa fa-phone" aria-hidden="true"></i>
-                <span>0223201223</span>
+                <div class="img-box">
+                  <img src="images/frisianflag.jpg" alt="">
+                </div>
+                <div class="detail-box">
+                  <h6>
+                    Frisian Flag
+                  </h6>
+                  <h6>
+                    Harga
+                    <span>
+                      Rp.11.000
+                    </span>
+                  </h6>
+                </div>
+                <div class="new">
+                  <span>
+                    Baru
+                  </span>
+                </div>
               </a>
+            </div>
+          </div>
+          <div class="col-sm-6 col-md-4 col-lg-3">
+            <div class="box">
               <a href="">
-                <i class="fa fa-envelope" aria-hidden="true"></i>
-                <span> groceriesmart@gmail.com</span>
+                <div class="img-box">
+                  <img src="images/jolly.jpg" alt="">
+                </div>
+                <div class="detail-box">
+                  <h6>
+                    Jolly
+                  </h6>
+                  <h6>
+                    Harga
+                    <span>
+                      Rp.16.500
+                    </span>
+                  </h6>
+                </div>
+                <div class="new">
+                  <span>
+                    Baru
+                  </span>
+                </div>
+              </a>
+            </div>
+          </div>
+          <div class="col-sm-6 col-md-4 col-lg-3">
+            <div class="box">
+              <a href="">
+                <div class="img-box">
+                  <img src="images/aoka.jpg" alt="">
+                </div>
+                <div class="detail-box">
+                  <h6>
+                    Roti Aoka
+                  </h6>
+                  <h6>
+                    Harga
+                    <span>
+                      Rp.3,000
+                    </span>
+                  </h6>
+                </div>
+                <div class="new">
+                  <span>
+                    Baru
+                  </span>
+                </div>
+              </a>
+            </div>
+          </div>
+          <div class="col-sm-6 col-md-4 col-lg-3">
+            <div class="box">
+              <a href="">
+                <div class="img-box">
+                  <img src="images/abcsaos.jpg" alt="">
+                </div>
+                <div class="detail-box">
+                  <h6>
+                    Saos ABC
+                  </h6>
+                  <h6>
+                    Harga
+                    <span>
+                      Rp.8,500
+                    </span>
+                  </h6>
+                </div>
+                <div class="new">
+                  <span>
+                    Baru
+                  </span>
+                </div>
+              </a>
+            </div>
+          </div>
+          <div class="col-sm-6 col-md-4 col-lg-3">
+            <div class="box">
+              <a href="">
+                <div class="img-box">
+                  <img src="images/goodday.jpg" alt="">
+                </div>
+                <div class="detail-box">
+                  <h6>
+                    Kopi Goodday
+                  </h6>
+                  <h6>
+                    Harga
+                    <span>
+                      Rp.2,000
+                    </span>
+                  </h6>
+                </div>
+                <div class="new">
+                  <span>
+                    Baru
+                  </span>
+                </div>
               </a>
             </div>
           </div>
         </div>
+        <div class="btn-box">
+          <a href="">
+            Lihat Semua Produk
+          </a>
+        </div>
       </div>
-    </div>
-    <!-- footer section -->
-    <footer class=" footer_section">
-      <div class="container">
-        <p>
-          &copy; <span id="displayYear"></span> All Rights Reserved By
-          <a href="">GroceriesMart</a>
-        </p>
-      </div>
-    </footer>
-    <!-- footer section -->
+    </section>
 
-  </section>
+    <script>
+        // Simulasi data pencarian (contoh produk)
+        const products = [
+            "Apel Fuji",
+            "Jeruk Manis",
+            "Mangga Harum Manis",
+            "Pisang Ambon",
+            "Tomat Segar",
+            "Kentang Lokal",
+            "Wortel Impor",
+            "Teh Botol Sosro",
+            "Kopi Good Day",
+            "Oreo Original",
+            "Indomie Goreng"
+        ];
 
-  <!-- end info section -->
+        // Fungsi Live Search
+        function liveSearch() {
+            const input = document.getElementById("live-search").value.toLowerCase();
+            const results = document.getElementById("search-results");
+            results.innerHTML = "";
 
-
-  <script src="js/jquery-3.4.1.min.js"></script>
-  <script src="js/bootstrap.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js">
-  </script>
-  <script src="js/custom.js"></script>
-
+            if (input.length > 0) {
+                const filtered = products.filter(product =>
+                    product.toLowerCase().includes(input)
+                );
+                filtered.forEach(product => {
+                    const li = document.createElement("li");
+                    li.textContent = product;
+                    li.onclick = () => alert(`Anda memilih: ${product}`);
+                    results.appendChild(li);
+                });
+            }
+        }
+    </script>
 </body>
-
 </html>

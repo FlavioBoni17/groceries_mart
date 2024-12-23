@@ -42,7 +42,7 @@
             font-size: 16px;
         }
         .form-button {
-            background: #28a745;
+            background: #4361ee;
             color: white;
             padding: 10px 20px;
             border: none;
@@ -51,7 +51,7 @@
             font-size: 16px;
         }
         .form-button:hover {
-            background: #218838;
+            background:rgb(35, 146, 177);
         }
     </style>
 </head>

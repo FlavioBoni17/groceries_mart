@@ -17,7 +17,7 @@
   <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css" />
 
   <!-- bootstrap core css -->
-  <link rel="stylesheet" type="text/css" href="{{asset('css/bootstrap.css')}}" />
+  <link rel="stylesheet" type="text/css" href="{{asset('css/style.css')}}" />
 
   <!-- Custom styles for this template -->
   <link href="{{asset('css/style.css')}}" rel="stylesheet" />

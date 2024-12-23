@@ -1,53 +1,63 @@
-<header class="header_section">
-      <nav class="navbar navbar-expand-lg custom_nav-container ">
-        <a class="navbar-brand" href="index.html">
-          <span>
-            GroceriesMart
-          </span>
-        </a>
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-          <span class=""></span>
-        </button>
-
-        <div class="collapse navbar-collapse" id="navbarSupportedContent">
-          <ul class="navbar-nav  ">
-            <li class="nav-item active">
-              <a class="nav-link" href="index.html">Home <span class="sr-only">(current)</span></a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="shop.html">
-                Produk
-              </a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="why.html">
-                Kenapa Kami
-              </a>
-          </ul>
-          <div class="user_option">
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GroceriesMart</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header class="navbar">
+        <div class="logo">GroceriesMart</div>
+        <nav>
+            <a href="#">Home</a>
+            <a href="#">Kategori</a>
+            <a href="shop.html">Belanja</a>
+            <a href="contact.html">Kontak kami</a>
+        </nav>
+        <div class="user_option">
+            <!-- Live Search -->
+            <div class="search-container">
+                <input type="text" id="live-search" placeholder="Cari produk..." onkeyup="liveSearch()">
+                <ul id="search-results"></ul>
+            </div>
+            <!-- Keranjang -->
+            <a href="{{url('/cart')}}" class="cart-icon">
+                <i class="fa fa-shopping-cart" aria-hidden="true"></i>
+                <span class="cart-count">0</span>
+            </a>
             <a href="{{url('/login')}}">
-              <i class="fa fa-user" aria-hidden="true"></i>
-              <span>
-                Login
-              </span>
+                <i class="fa fa-user" aria-hidden="true"></i>
+                <span>Login</span>
             </a>
-
             <a href="{{url('/register')}}">
-              <i class="fa fa-vcard" aria-hidden="true"></i>
-              <span>
-                Register
-              </span>
+                <i class="fa fa-vcard" aria-hidden="true"></i>
+                <span>Register</span>
             </a>
-
-            <a href="">
-              <i class="fa fa-shopping-bag" aria-hidden="true"></i>
-            </a>
-            <form class="form-inline ">
-              <button class="btn nav_search-btn" type="submit">
-                <i class="fa fa-search" aria-hidden="true"></i>
-              </button>
-            </form>
-          </div>
         </div>
-      </nav>
     </header>
+
+    <script>
+        
+        const products = ["Saos", "Goodday", "Frisainflag", "Indomie", "Filma", "Roti", "Oreo"];
+
+        function liveSearch() {
+            const input = document.getElementById("live-search").value.toLowerCase();
+            const results = document.getElementById("search-results");
+            results.innerHTML = "";
+
+            if (input.length > 0) {
+                const filtered = products.filter(product =>
+                    product.toLowerCase().includes(input)
+                );
+                filtered.forEach(product => {
+                    const li = document.createElement("li");
+                    li.textContent = product;
+                    results.appendChild(li);
+                });
+            }
+        }
+    </script>
+</body>
+</html>
