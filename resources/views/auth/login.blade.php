@@ -42,7 +42,7 @@
             font-size: 16px;
         }
         .form-button {
-            background: #28a745;
+            background: #4361ee;
             color: white;
             padding: 10px 20px;
             border: none;
@@ -51,7 +51,17 @@
             font-size: 16px;
         }
         .form-button:hover {
-            background: #218838;
+            background: rgb(35, 146, 177);
+        }
+        .forgot-password {
+            display: block;
+            margin-top: 10px;
+            color: #4361ee;
+            text-decoration: none;
+            font-size: 14px;
+        }
+        .forgot-password:hover {
+            text-decoration: underline;
         }
     </style>
 </head>
@@ -65,6 +75,8 @@
                 <input type="password" name="password" class="form-input" placeholder="Password" required>
                 <button type="submit" class="form-button">Login</button>
             </form>
+            <!-- Fitur Lupa Password -->
+            <a href="{{ route('password.request') }}" class="forgot-password">Lupa Password?</a>
         </div>
     </div>
 </body>
