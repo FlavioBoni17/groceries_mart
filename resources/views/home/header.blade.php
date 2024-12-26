@@ -4,42 +4,51 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>GroceriesMart</title>
+    <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
-    <link rel="stylesheet" href="styles.css">
 </head>
-<body>
-    <header class="navbar">
-        <div class="logo">GroceriesMart</div>
-        <nav>
-            <a href="#">Home</a>
-            <a href="#">Kategori</a>
-            <a href="shop.html">Belanja</a>
-            <a href="contact.html">Kontak kami</a>
+<body class="bg-gray-100 font-sans">
+
+    <!-- Navbar -->
+    <header class="bg-blue-700 text-white flex justify-between items-center px-6 py-4">
+        <div class="text-xl font-bold">GroceriesMart</div>
+        <nav class="flex space-x-6">
+            <a href="#" class="hover:text-yellow-400">Home</a>
+            <a href="#" class="hover:text-yellow-400">Kategori</a>
+            <a href="shop.php" class="hover:text-yellow-400">Belanja</a>
+            <a href="contact.php" class="hover:text-yellow-400">Kontak kami</a>
         </nav>
-        <div class="user_option">
+        <div class="flex items-center space-x-6">
             <!-- Live Search -->
-            <div class="search-container">
-                <input type="text" id="live-search" placeholder="Cari produk..." onkeyup="liveSearch()">
-                <ul id="search-results"></ul>
+            <div class="relative flex-grow">
+              <input type="text" id="live-search" placeholder="Cari produk..." 
+              class="w-full max-w-2xl px-4 py-2 border border-gray-300 rounded focus:ring-2 focus:ring-yellow-400 focus:outline-none">
+              <ul id="search-results" 
+              class="absolute left-0 top-full mt-1 max-w-2xl bg-white border border-gray-300 rounded shadow-md max-h-48 overflow-y-auto overflow-x-hidden z-10 hidden">
+              </ul>
             </div>
+
+
             <!-- Keranjang -->
-            <a href="{{url('/cart')}}" class="cart-icon">
+            <a href="{{url('/cart')}}" class="relative text-white hover:text-yellow-400">
                 <i class="fa fa-shopping-cart" aria-hidden="true"></i>
-                <span class="cart-count">0</span>
+                <span class="absolute -top-1 -right-2 bg-red-500 text-xs text-white w-5 h-5 flex items-center justify-center rounded-full">0</span>
             </a>
-            <a href="{{url('/login')}}">
+            <!-- Login -->
+            <a href="{{url('/login')}}" class="flex items-center space-x-1 hover:text-yellow-400">
                 <i class="fa fa-user" aria-hidden="true"></i>
                 <span>Login</span>
             </a>
-            <a href="{{url('/register')}}">
+            <!-- Register -->
+            <a href="{{url('/register')}}" class="flex items-center space-x-1 hover:text-yellow-400">
                 <i class="fa fa-vcard" aria-hidden="true"></i>
                 <span>Register</span>
             </a>
         </div>
     </header>
 
+    <!-- Live Search Script -->
     <script>
-        
         const products = ["Saos", "Goodday", "Frisainflag", "Indomie", "Filma", "Roti", "Oreo"];
 
         function liveSearch() {
@@ -54,6 +63,7 @@
                 filtered.forEach(product => {
                     const li = document.createElement("li");
                     li.textContent = product;
+                    li.className = "px-4 py-2 cursor-pointer hover:bg-yellow-400 hover:text-white";
                     results.appendChild(li);
                 });
             }
