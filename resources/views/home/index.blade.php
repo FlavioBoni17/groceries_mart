@@ -17,18 +17,10 @@
     @include('home.slider')
     <!-- end slider section -->
   </div>
-  <!-- end hero area -->
 
   <!-- shop section -->
     @include('home.product')
   <!-- end shop section -->
-
-  <!-- contact section -->
-  
-  
-  <!-- end contact section -->
-
-   
 
   <!-- info section -->
   @include('home.footer')
