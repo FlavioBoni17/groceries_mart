@@ -9,6 +9,7 @@
 <body class="bg-blue-50 font-sans">
     <div class="flex h-screen">
         
+        {{-- Sidebar --}}
         <aside class="w-64 bg-blue-900 text-white flex flex-col">
             <div class="p-4 text-center text-2xl font-bold border-b border-blue-700">
                 Admin Area
@@ -16,10 +17,10 @@
             <nav class="flex-grow">
                 <ul>
                     <li class="hover:bg-blue-700">
-                        <a href="#" class="block px-4 py-2">Dashboard</a>
+                        <a href="#" class="block px-4 py-2">Home</a>
                     </li>
                     <li class="hover:bg-blue-700">
-                        <a href="#" class="block px-4 py-2">Pengguna</a>
+                        <a href="{{ url('view_category') }}" class="block px-4 py-2">Kategori</a>
                     </li>
                     <li class="hover:bg-blue-700">
                         <a href="add-product.php" class="block px-4 py-2">Produk</a>
