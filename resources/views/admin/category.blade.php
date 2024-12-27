@@ -23,9 +23,25 @@
         {
             text-align: center;
             margin: auto;
-            border: 2px solid yellowgreen;
+            border: 2px solid blue;
             margin-top: 50px ;
+            width: 600px;
         }
+         th
+         {
+            background-color: skyblue;
+            padding: 15px;
+            font-size: 20px;
+            font-weight: bold;
+            color: white;
+         }
+         td 
+         {
+            color: black;
+            padding: 10px;
+            border: 1px solid;
+         }
+
     </style>
 </head>
 <body class="bg-blue-50 font-sans">
@@ -90,8 +106,14 @@
                     </tr>
 
                     <tr>
-                        <td>Sports</td>
+                       @foreach($data as $data  )
                     </tr>
+                    <tr>
+                        <td>{{$data->category_name}}</td>
+                    </tr>
+
+                    @endforeach
+
                 </table>
 
             </div>
