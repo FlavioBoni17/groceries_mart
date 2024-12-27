@@ -18,6 +18,14 @@
             align-items: center;
             margin: 30px;
         }
+
+        .table_deg
+        {
+            text-align: center;
+            margin: auto;
+            border: 2px solid yellowgreen;
+            margin-top: 50px ;
+        }
     </style>
 </head>
 <body class="bg-blue-50 font-sans">
@@ -73,6 +81,21 @@
             </form>
 
             </div>
+
+            <div>
+
+                <table class="table_deg">
+                    <tr>
+                        <th>Category Name</th>
+                    </tr>
+
+                    <tr>
+                        <td>Sports</td>
+                    </tr>
+                </table>
+
+            </div>
+
         </main>
 
 
