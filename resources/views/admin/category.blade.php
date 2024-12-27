@@ -103,6 +103,8 @@
                 <table class="table_deg">
                     <tr>
                         <th>Category Name</th>
+                        
+                        <th>Delete</th>
                     </tr>
 
                     <tr>
@@ -110,6 +112,9 @@
                     </tr>
                     <tr>
                         <td>{{$data->category_name}}</td>
+                        <td>
+                            <a class="btn btn-danger" href="{{url('delete_category',$data->id)}}"></a>
+                        </td>
                     </tr>
 
                     @endforeach
