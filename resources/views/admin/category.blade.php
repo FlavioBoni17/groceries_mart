@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Admin Dashboard</title>
+    <title>Halaman Kategori</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <style type="text/css">
         input[type="text"]
@@ -19,29 +19,6 @@
             margin: 30px;
         }
 
-        .table_deg
-        {
-            text-align: center;
-            margin: auto;
-            border: 2px solid blue;
-            margin-top: 50px ;
-            width: 600px;
-        }
-         th
-         {
-            background-color: skyblue;
-            padding: 15px;
-            font-size: 20px;
-            font-weight: bold;
-            color: white;
-         }
-         td 
-         {
-            color: black;
-            padding: 10px;
-            border: 1px solid;
-         }
-
     </style>
 </head>
 <body class="bg-blue-50 font-sans">
@@ -54,7 +31,7 @@
             <nav class="flex-grow">
                 <ul>
                     <li class="hover:bg-blue-700">
-                        <a href="#" class="block px-4 py-2">Home</a>
+                        <a href="{{ url('admin/dashboard') }}" class="block px-4 py-2">Home</a>
                     </li>
                     <li class="hover:bg-blue-700">
                         <a href="{{ url('view_category') }}" class="block px-4 py-2">Kategori</a>
@@ -76,14 +53,12 @@
         <main class="flex-grow p-6 relative">
             
             <header class="flex justify-between items-center mb-6">
-                <h1 class="text-2xl font-bold text-blue-900">Kategori</h1>
+                <h1 class="text-2xl font-bold text-blue-900">Halaman Kategori</h1>
                 <form method="POST" action="{{ route('logout') }}" class="absolute top-6 right-6">
                     @csrf
                     <button type="submit" class="bg-blue-800 text-white px-4 py-2 rounded hover:bg-blue-700">Logout</button>
                 </form>
             </header>
-
-                <h1>Tambah Kategori</h1>
 
             <div class="div_deg">
 
@@ -91,37 +66,14 @@
 
                 @csrf
                 <div>
-                    <input type="text" name="category">
-                    <input class="btn btn-primary" type="submit" value="Add Category">
+                    <input type="text" name="category" placeholder="Masukkan Kategori">
+                    <button type="submit" class="bg-blue-800 text-white px-4 py-2 rounded hover:bg-blue-700" value="Add Category">Tambah Kategori</button>
                 </div>
             </form>
 
             </div>
 
-            <div>
-
-                <table class="table_deg">
-                    <tr>
-                        <th>Category Name</th>
-                        
-                        <th>Delete</th>
-                    </tr>
-
-                    <tr>
-                       @foreach($data as $data  )
-                    </tr>
-                    <tr>
-                        <td>{{$data->category_name}}</td>
-                        <td>
-                            <a class="btn btn-danger" href="{{url('delete_category',$data->id)}}"></a>
-                        </td>
-                    </tr>
-
-                    @endforeach
-
-                </table>
-
-            </div>
+           
 
         </main>
 

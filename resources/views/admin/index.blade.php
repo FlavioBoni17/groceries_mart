@@ -17,7 +17,7 @@
             <nav class="flex-grow">
                 <ul>
                     <li class="hover:bg-blue-700">
-                        <a href="#" class="block px-4 py-2">Home</a>
+                        <a href="{{ url('admin/dashboard') }}" class="block px-4 py-2">Home</a>
                     </li>
                     <li class="hover:bg-blue-700">
                         <a href="{{ url('view_category') }}" class="block px-4 py-2">Kategori</a>
