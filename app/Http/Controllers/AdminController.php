@@ -22,4 +22,12 @@ class AdminController extends Controller
         toastr()->timeOut(10000)->closeButton()->addSuccess('Kategori Berhasil Ditambahkan');
         return redirect()->back();
     }
+
+    public function delete_category($id)
+    {
+        $data = Category::find($id);
+        $data->delete();
+        toastr()->timeOut(10000)->closeButton()->addSuccess('Kategori Berhasil Dihapus');
+        return redirect()->back();
+    }
 }
