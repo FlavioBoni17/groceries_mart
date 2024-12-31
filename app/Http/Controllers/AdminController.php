@@ -30,4 +30,11 @@ class AdminController extends Controller
         toastr()->timeOut(10000)->closeButton()->addSuccess('Kategori Berhasil Dihapus');
         return redirect()->back();
     }
+
+    public function edit_category($id)
+    {
+        $data = Category::find($id);
+
+        return view('admin.edit_category',compact('data'));
+    }
 }

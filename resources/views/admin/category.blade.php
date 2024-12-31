@@ -98,6 +98,7 @@
                 <table class="table_deg">
                     <tr>
                         <th>Nama Kategori</th>
+                        <th>Edit</th>
                         <th>Hapus</th>
                     </tr>
 
@@ -105,6 +106,9 @@
 
                     <tr>
                         <td>{{$data->category_name}}</td>
+                        <td>
+                        <a class="btn btn-success" href="{{ url('edit_category/' . $data->id) }}">Edit</a>
+                        </td>
                         <td>
                             <a class="bg-red-600 text-white px-4 py-2 rounded hover:bg-red-700" onclick="confirmation(event)" href="{{url('delete_category', $data->id)}}">Hapus</a>
                         </td>
