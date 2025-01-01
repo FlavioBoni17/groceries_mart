@@ -62,6 +62,9 @@
                         <a href="{{ url('add_product') }}" class="block px-4 py-2">Tambah Produk</a>
                     </li>
                     <li class="hover:bg-blue-700">
+                        <a href="{{ url('view_product') }}" class="block px-4 py-2">Lihat Produk</a>
+                    </li>
+                    <li class="hover:bg-blue-700">
                         <a href="#" class="block px-4 py-2">Pesanan</a>
                     </li>
                     <li class="hover:bg-blue-700">
