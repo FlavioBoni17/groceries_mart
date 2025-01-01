@@ -30,4 +30,32 @@ class AdminController extends Controller
         toastr()->timeOut(10000)->closeButton()->addSuccess('Kategori Berhasil Dihapus');
         return redirect()->back();
     }
+
+    public function edit_category($id)
+    {
+        $data = Category::find($id);
+
+        return view('admin.edit_category',compact('data'));
+    }
+
+    public function update_category(Request $request, $id)
+{
+    // Validasi data
+    $request->validate([
+        'category' => 'required|string|max:255',
+    ]);
+
+    // Temukan data berdasarkan ID
+    $data = Category::findOrFail($id);
+
+    // Perbarui nama kategori
+    $data->category_name = $request->input('category');
+
+    // Simpan perubahan
+    $data->save();
+
+    // Redirect ke halaman view_category dengan pesan sukses
+    return redirect('/view_category')->with('success', 'Kategori berhasil diperbarui.');
+}
+
 }
