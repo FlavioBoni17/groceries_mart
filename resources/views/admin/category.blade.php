@@ -58,7 +58,10 @@
                         <a href="{{ url('view_category') }}" class="block px-4 py-2">Kategori</a>
                     </li>
                     <li class="hover:bg-blue-700">
-                        <a href="add-product.php" class="block px-4 py-2">Produk</a>
+                        <a href="#" class="block px-4 py-2">Produk</a>
+                        <li class="hover:bg-blue-700">
+                        <a href="{{ url('add_product') }}" class="block px-4 py-2">Tambah Produk</a>
+                    </li>
                     </li>
                     <li class="hover:bg-blue-700">
                         <a href="#" class="block px-4 py-2">Pesanan</a>

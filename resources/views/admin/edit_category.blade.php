@@ -23,7 +23,10 @@
                         <a href="{{ url('view_category') }}" class="block px-4 py-2">Kategori</a>
                     </li>
                     <li class="hover:bg-blue-700">
-                        <a href="add-product.php" class="block px-4 py-2">Produk</a>
+                        <a href="#" class="block px-4 py-2">Produk</a>
+                    </li>
+                    <li class="hover:bg-blue-700">
+                        <a href="{{ url('add_product') }}" class="block px-4 py-2">Tambah Produk</a>
                     </li>
                     <li class="hover:bg-blue-700">
                         <a href="#" class="block px-4 py-2">Pesanan</a>
@@ -41,16 +44,6 @@
             <header class="flex justify-between items-center mb-6">
                 <h1 class="text-2xl font-bold text-blue-900">Update Kategori</h1>
                 <div class="flex items-center space-x-4">
-                    <div class="relative">
-                        <input type="text" placeholder="Search..." class="px-4 py-2 rounded border border-gray-300">
-                        <span class="absolute inset-y-0 right-2 flex items-center text-gray-500">
-                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" class="w-5 h-5">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 16l-4 4m0 0l4-4m-4 4h16m-6-9a9 9 0 11-18 0 9 9 0 0118 0z" />
-                            </svg>
-                        </span>
-                    </div>
-                    
-                    <button class="bg-blue-700 text-white px-4 py-2 rounded hover:bg-blue-600">Search</button>
                 </div>
                 <form method="POST" action="{{ route('logout') }}" class="absolute top-6 right-6">
                     @csrf
