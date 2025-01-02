@@ -9,7 +9,6 @@
       @foreach ($product as $products)
         
       <div class="box bg-gray-200 p-8 relative">
-        <a href="">
           <div class="img-box flex justify-center items-center py-12">
             <img src="products/{{ $products->image }}" alt="" class="max-w-full max-h-48 object-contain">
           </div>
@@ -20,7 +19,10 @@
             </h6>
           </div>
         
-        </a>
+          <div style="padding: 15px">
+            <a class="bg-red-600 text-white px-4 py-2 rounded hover:bg-red-700" href="{{ url('product_details', $products->id) }}">Lihat Detail</a>
+          </div>
+
       </div>
       @endforeach
 

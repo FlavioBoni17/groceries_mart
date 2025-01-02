@@ -13,7 +13,7 @@
     <header class="bg-blue-700 text-white flex justify-between items-center px-6 py-4">
         <div class="text-xl font-bold">GroceriesMart</div>
         <nav class="flex space-x-6">
-            <a href="#" class="hover:text-yellow-400">Home</a>
+            <a href="{{ url('/') }}" class="hover:text-yellow-400">Home</a>
             <a href="#" class="hover:text-yellow-400">Kategori</a>
             <a href="shop.php" class="hover:text-yellow-400">Belanja</a>
             <a href="contact.php" class="hover:text-yellow-400">Kontak kami</a>
