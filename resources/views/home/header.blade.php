@@ -35,6 +35,18 @@
                 <span class="absolute -top-1 -right-2 bg-red-500 text-xs text-white w-5 h-5 flex items-center justify-center rounded-full">0</span>
             </a>
             <!-- Login -->
+            @if (Route::has('login'))
+                @auth
+
+                <a href="">
+                    <i class="fa fa-shopping-bag" aria-hidden="true"></i>
+                </a>
+
+                    <form style="padding: 10px" method="POST" action="{{ route('logout') }}">
+                            @csrf
+                            <button type="submit" class="bg-yellow-600 text-white px-4 py-2 rounded hover:bg-yellow-400" value="logout">Logout</button>
+                    </form>
+                @else
             <a href="{{url('/login')}}" class="flex items-center space-x-1 hover:text-yellow-400">
                 <i class="fa fa-user" aria-hidden="true"></i>
                 <span>Login</span>
@@ -44,11 +56,15 @@
                 <i class="fa fa-vcard" aria-hidden="true"></i>
                 <span>Register</span>
             </a>
+
+            @endauth
+        @endif
+
         </div>
     </header>
 
     <!-- Live Search Script -->
-    <script>
+    {{-- <script>
         const products = ["Saos", "Goodday", "Frisainflag", "Indomie", "Filma", "Roti", "Oreo"];
 
         function liveSearch() {
@@ -68,6 +84,6 @@
                 });
             }
         }
-    </script>
+    </script> --}}
 </body>
 </html>
