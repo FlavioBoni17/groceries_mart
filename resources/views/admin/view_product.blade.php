@@ -33,6 +33,13 @@
         border: 1px solid skyblue;
         text-align: center;
     }
+
+    input[type='search']
+    {
+        width: 500px;
+        height: 60px;
+        margin-left: 50px; 
+    }
     </style>
 
 </head>
@@ -84,6 +91,12 @@
                 </form>
             </header>
 
+
+            <form action="{{url('product_search')}}" method="get">
+                @csrf
+                <input type="search" name="search">
+                <button type="submit" class="bg-blue-800 text-white px-4 py-2 rounded hover:bg-blue-700" value="Search">Search</button>
+            </form>
         
             <div class="div_deg">
                 <table class="table_deg">
