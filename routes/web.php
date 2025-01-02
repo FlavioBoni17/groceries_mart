@@ -50,3 +50,6 @@ route::post('upload_product',[AdminController::class,'upload_product'])->
 
 route::get('view_product',[AdminController::class,'view_product'])->
    middleware(['auth','admin']);
+
+route::get('delete_product/{id}',[AdminController::class,'delete_product'])->
+   middleware(['auth','admin']);
