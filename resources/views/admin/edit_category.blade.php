@@ -5,36 +5,42 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Admin Dashboard</title>
     <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
 </head>
 <body class="bg-blue-50 font-sans">
     <div class="flex h-screen">
         
-        {{-- Sidebar --}}
+    {{-- Sidebar --}}
         <aside class="w-64 bg-blue-900 text-white flex flex-col">
-            <div class="p-4 text-center text-2xl font-bold border-b border-blue-700">
-                Admin Area
-            </div>
+            <div class="p-4 text-center text-2xl font-bold border-b border-blue-700">Admin Area</div>
             <nav class="flex-grow">
                 <ul>
-                    <li class="hover:bg-blue-700">
+                    <li class="hover:bg-blue-700 flex items-center">
+                        <i class="fa-solid fa-home mx-3"></i>
                         <a href="{{ url('admin/dashboard') }}" class="block px-4 py-2">Home</a>
                     </li>
-                    <li class="hover:bg-blue-700">
+                    <li class="hover:bg-blue-700 flex items-center">
+                        <i class="fa-solid fa-list mx-3"></i>
                         <a href="{{ url('view_category') }}" class="block px-4 py-2">Kategori</a>
                     </li>
-                    <li class="hover:bg-blue-700">
+                    <li class="hover:bg-blue-700 flex items-center">
+                        <i class="fa-solid fa-box mx-3"></i>
                         <a href="#" class="block px-4 py-2">Produk</a>
                     </li>
-                    <li class="hover:bg-blue-700">
+                    <li class="hover:bg-blue-700 flex items-center">
+                        <i class="fa-solid fa-plus mx-3"></i>
                         <a href="{{ url('add_product') }}" class="block px-4 py-2">Tambah Produk</a>
                     </li>
-                    <li class="hover:bg-blue-700">
+                    <li class="hover:bg-blue-700 flex items-center">
+                        <i class="fa-solid fa-eye mx-3"></i>
                         <a href="{{ url('view_product') }}" class="block px-4 py-2">Lihat Produk</a>
                     </li>
-                    <li class="hover:bg-blue-700">
+                    <li class="hover:bg-blue-700 flex items-center">
+                        <i class="fa-solid fa-shopping-cart mx-3"></i>
                         <a href="#" class="block px-4 py-2">Pesanan</a>
                     </li>
-                    <li class="hover:bg-blue-700">
+                    <li class="hover:bg-blue-700 flex items-center">
+                        <i class="fa-solid fa-cog mx-3"></i>
                         <a href="#" class="block px-4 py-2">Settings</a>
                     </li>
                 </ul>
