@@ -22,7 +22,7 @@
           <div style="padding: 15px">
             <a class="bg-red-600 text-white px-4 py-2 rounded hover:bg-red-700" href="{{ url('product_details', $products->id) }}">Detail</a>
 
-            <a class="bg-blue-600 text-white px-4 py-2 rounded hover:bg-blue-700" href="">Tambah Keranjang</a>
+            <a class="bg-blue-600 text-white px-4 py-2 rounded hover:bg-blue-700" href="{{ url('add_cart', $products->id) }}">Tambah Keranjang</a>
 
           </div>
 
