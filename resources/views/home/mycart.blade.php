@@ -35,6 +35,13 @@
   {
     border: 1px solid skyblue;
   }
+
+  .cart_value
+  {
+    text-align: center;
+    margin-bottom: 70px;
+    padding: 18px;
+  }
   </style>
 
 </head>
@@ -53,7 +60,11 @@
             <th>Judul Produk</th>
             <th>Harga</th>
             <th>Gambar</th>
+            <th>Hapus</th>
         </tr>
+        <?php 
+        $value=0;
+        ?>
         @foreach ($cart as $cart)
             
         <tr>
@@ -62,9 +73,24 @@
             <td>
                 <img width="150" src="/products/{{ $cart->product->image }}" alt="">
             </td>
+            <td><button type="submit" class="bg-red-600 text-white px-4 py-2 rounded hover:bg-red-400" value="hapus">Hapus</button>
+          </td>
+
+
+
         </tr>
+
+        <?php 
+        
+        $value = $value + $cart->product->price;
+
+        ?>
+
         @endforeach
     </table>
+</div>
+<div class="cart_value">
+  <h3>Total Nilai dari keranjang adalah : Rp.{{$value}}</h3>
 </div>
 
 
