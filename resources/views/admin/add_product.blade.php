@@ -79,48 +79,59 @@
 
             </header>
 
-            <div class="div_deg">
-                <form action="{{ url('upload_product') }}" method="Post" enctype="multipart/form-data">
-                    @csrf
-                    <div class="input_deg">
-                        <label for="">Judul Produk</label>
-                        <input type="text" name="title" required>
-                    </div>
+            <div class="flex justify-center items-start pt-10 bg-gray-100 min-h-screen">
+                 <form action="{{ url('upload_product') }}" method="Post" enctype="multipart/form-data" class="bg-white p-8 rounded-lg shadow-md w-full max-w-lg">
+                   @csrf
+                 <h2 class="text-2xl font-bold text-blue-800 mb-6 text-center">Tambah Produk</h2>
+        
+              <!-- Judul Produk -->
+                 <div class="mb-4">
+                   <label for="title" class="block text-sm font-medium text-gray-700 mb-2">Judul Produk</label>
+                   <input type="text" name="title" id="title" class="w-full border border-gray-300 rounded-lg py-3 px-4 focus:outline-none focus:ring-2 focus:ring-blue-500" required>
+                 </div>
 
-                    <div class="input_deg">
-                        <label for="">Deskripsi</label>
-                        <textarea name="description" required></textarea>
-                    </div>
+              <!-- Deskripsi -->
+                  <div class="mb-4">
+                     <label for="description" class="block text-sm font-medium text-gray-700 mb-2">Deskripsi</label>
+                     <textarea name="description" id="description" class="w-full border border-gray-300 rounded-lg py-3 px-4 focus:outline-none focus:ring-2 focus:ring-blue-500" required></textarea>
+                  </div>
 
-                    <div class="input_deg">
-                        <label for="">Harga</label>
-                        <input type="text" name="price">
-                    </div>
+              <!-- Harga -->
+                  <div class="mb-4">
+                      <label for="price" class="block text-sm font-medium text-gray-700 mb-2">Harga</label>
+                      <input type="text" name="price" id="price" class="w-full border border-gray-300 rounded-lg py-3 px-4 focus:outline-none focus:ring-2 focus:ring-blue-500">
+                   </div>
+  
+              <!-- Qty -->
+                  <div class="mb-4">
+                      <label for="qty" class="block text-sm font-medium text-gray-700 mb-2">Qty</label>
+                      <input type="number" name="qty" id="qty" class="w-full border border-gray-300 rounded-lg py-3 px-4 focus:outline-none focus:ring-2 focus:ring-blue-500">
+                  </div>
 
-                    <div class="input_deg">
-                        <label for="">Qty</label>
-                        <input type="number" name="qty">
-                    </div>
+             <!-- Produk Kategori -->
+                 <div class="mb-4">
+                    <label for="category" class="block text-sm font-medium text-gray-700 mb-2">Produk Kategori</label>
+                     <select name="category" id="category" class="w-full border border-gray-300 rounded-lg py-3 px-4 focus:outline-none focus:ring-2 focus:ring-blue-500" required>
+                     <option disabled selected>Pilih Opsi</option>
+                     @foreach($category as $category)
+                     <option value="{{ $category->category_name }}">{{ $category->category_name }}</option>
+                     @endforeach
+                   </select>
+                </div>
 
-                    <div class="input_deg">
-                        <label>Produk Kategori</label>
-                        <select name="category" required class="w-full border border-gray-300 rounded-lg py-2 px-3 bg-white focus:outline-none focus:ring-2 focus:ring-blue-500 hover:bg-gray-50">
-                            <option disabled selected>Pilih Opsi</option>
-                            @foreach($category as $category)
-                            <option value="{{ $category->category_name }}">{{ $category->category_name }}</option>
-                            @endforeach
-                        </select>
-                    </div>
+               <!-- Foto Produk -->
+                 <div class="mb-4">
+                    <label for="image" class="block text-sm font-medium text-gray-700 mb-2">Foto Produk</label>
+                    <input type="file" name="image" id="image" class="w-full border border-gray-300 rounded-lg py-3 px-4 focus:outline-none focus:ring-2 focus:ring-blue-500">
+                  </div>
 
-                    <div class="input_deg">
-                        <label for="">Foto Produk</label>
-                        <input type="file" name="image">
-                    </div>
-
-                    <div class="input_deg">
-                        <button type="submit" class="bg-blue-800 text-white px-4 py-2 rounded hover:bg-blue-700" value="Tambah Produk">Tambah Produk</button>
-                    </div>
-                </form>
+               <!-- Submit Button -->
+                  <div>
+                    <button type="submit" class="w-full bg-blue-800 text-white py-3 rounded-lg text-lg font-semibold hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-500 transition">
+                         Tambah Produk
+                    </button>
+                  </div>
+              </form>
             </div>
         </main>
     </div>
