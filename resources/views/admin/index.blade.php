@@ -12,68 +12,55 @@
         
         {{-- Sidebar --}}
         <aside class="w-64 bg-blue-900 text-white flex flex-col">
-    <div class="p-4 text-center text-2xl font-bold border-b border-blue-700">
-        Admin Area
-    </div>
-    <nav class="flex-grow">
-        <ul>
-            <li class="hover:bg-blue-700 flex items-center">
-                <i class="fa-solid fa-home mx-3"></i>
-                <a href="{{ url('admin/dashboard') }}" class="block px-4 py-2">Home</a>
-            </li>
-            <li class="hover:bg-blue-700 flex items-center">
-                <i class="fa-solid fa-list mx-3"></i>
-                <a href="{{ url('view_category') }}" class="block px-4 py-2">Kategori</a>
-            </li>
-            <li class="hover:bg-blue-700 flex items-center">
-                <i class="fa-solid fa-box mx-3"></i>
-                <a href="#" class="block px-4 py-2">Produk</a>
-            </li>
-            <li class="hover:bg-blue-700 flex items-center">
-                <i class="fa-solid fa-plus mx-3"></i>
-                <a href="{{ url('add_product') }}" class="block px-4 py-2">Tambah Produk</a>
-            </li>
-            <li class="hover:bg-blue-700 flex items-center">
-                <i class="fa-solid fa-eye mx-3"></i>
-                <a href="{{ url('view_product') }}" class="block px-4 py-2">Lihat Produk</a>
-            </li>
-            <li class="hover:bg-blue-700 flex items-center">
-                <i class="fa-solid fa-shopping-cart mx-3"></i>
-                <a href="#" class="block px-4 py-2">Pesanan</a>
-            </li>
-            <li class="hover:bg-blue-700 flex items-center">
-                <i class="fa-solid fa-cog mx-3"></i>
-                <a href="#" class="block px-4 py-2">Settings</a>
-            </li>
-        </ul>
-    </nav>
-</aside>
-
-
-
+            <div class="p-4 text-center text-2xl font-bold border-b border-blue-700">
+               Admin Area
+            </div>
+            <nav class="flex-grow">
+                <ul>
+                    <li class="hover:bg-blue-700 flex items-center">
+                        <i class="fa-solid fa-home mx-3"></i>
+                        <a href="{{ url('admin/dashboard') }}" class="block px-4 py-2">Home</a>
+                    </li>
+                    <li class="hover:bg-blue-700 flex items-center">
+                        <i class="fa-solid fa-list mx-3"></i>
+                        <a href="{{ url('view_category') }}" class="block px-4 py-2">Kategori</a>
+                    </li>
+                    <li class="hover:bg-blue-700 flex items-center">
+                        <i class="fa-solid fa-box mx-3"></i>
+                        <a href="#" class="block px-4 py-2">Produk</a>
+                    </li>
+                    <li class="hover:bg-blue-700 flex items-center">
+                        <i class="fa-solid fa-plus mx-3"></i>
+                        <a href="{{ url('add_product') }}" class="block px-4 py-2">Tambah Produk</a>
+                    </li>
+                    <li class="hover:bg-blue-700 flex items-center">
+                        <i class="fa-solid fa-eye mx-3"></i>
+                        <a href="{{ url('view_product') }}" class="block px-4 py-2">Lihat Produk</a>
+                    </li>
+                </ul>
+            </nav>
+        </aside>
         
         <main class="flex-grow p-6 relative">
             
             <header class="flex justify-between items-center mb-6">
                 <h1 class="text-2xl font-bold text-blue-900">Dashboard</h1>
                 <div class="flex items-center space-x-4">
-                    <div class="relative">
-                        <input type="text" placeholder="Search..." class="px-4 py-2 rounded border border-gray-300">
-                        <span class="absolute inset-y-0 right-2 flex items-center text-gray-500">
-                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" class="w-5 h-5">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 16l-4 4m0 0l4-4m-4 4h16m-6-9a9 9 0 11-18 0 9 9 0 0118 0z" />
-                            </svg>
-                        </span>
+                    {{-- Profile Picture and Name --}}
+                    <div class="flex items-center space-x-2">
+                        <img src="https://via.placeholder.com/40" alt="Admin" class="rounded-full w-10 h-10">
+                        <span class="text-blue-900 font-semibold">Admin</span>
                     </div>
-                    <button class="bg-blue-700 text-white px-4 py-2 rounded hover:bg-blue-600">Search</button>
                 </div>
                 <form method="POST" action="{{ route('logout') }}" class="absolute top-6 right-6">
-                    @csrf
-                    <button type="submit" class="bg-blue-800 text-white px-4 py-2 rounded hover:bg-blue-700">Logout</button>
+                   @csrf
+                   <button type="submit" class="bg-blue-800 text-white px-4 py-2 rounded hover:bg-blue-700 flex items-center">
+                   <i class="fa-solid fa-sign-out-alt mr-2"></i> Logout
+                   </button>
                 </form>
+
             </header>
 
-            
             <section class="grid grid-cols-4 gap-6 mb-6">
                 <div class="bg-white p-6 rounded shadow text-center">
                     <h2 class="text-xl font-bold text-blue-900">Pengguna</h2>
@@ -93,7 +80,6 @@
                 </div>
             </section>
 
-           
             <section>
                 <h2 class="text-xl font-bold text-blue-900 mb-4">Pesanan terbaru</h2>
                 <div class="bg-white rounded shadow overflow-auto">

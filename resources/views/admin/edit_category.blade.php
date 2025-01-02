@@ -35,14 +35,6 @@
                         <i class="fa-solid fa-eye mx-3"></i>
                         <a href="{{ url('view_product') }}" class="block px-4 py-2">Lihat Produk</a>
                     </li>
-                    <li class="hover:bg-blue-700 flex items-center">
-                        <i class="fa-solid fa-shopping-cart mx-3"></i>
-                        <a href="#" class="block px-4 py-2">Pesanan</a>
-                    </li>
-                    <li class="hover:bg-blue-700 flex items-center">
-                        <i class="fa-solid fa-cog mx-3"></i>
-                        <a href="#" class="block px-4 py-2">Settings</a>
-                    </li>
                 </ul>
             </nav>
         </aside>
@@ -55,20 +47,29 @@
                 <div class="flex items-center space-x-4">
                 </div>
                 <form method="POST" action="{{ route('logout') }}" class="absolute top-6 right-6">
-                    @csrf
-                    <button type="submit" class="bg-blue-800 text-white px-4 py-2 rounded hover:bg-blue-700">Logout</button>
-                </form>
-                
+                   @csrf
+                <button type="submit" class="bg-blue-800 text-white px-4 py-2 rounded hover:bg-blue-700 flex items-center">
+                <i class="fa-solid fa-sign-out-alt mr-2"></i> Logout
+                </button>
+              </form>
+
             </header>
 
-            <div>
+            <div class="max-w-2xl mx-auto p-4 bg-white rounded-lg shadow-md">
+                <form action="{{url('update_category', $data->id)}}" method="POST">
+                    @csrf
+                    <div class="mb-4">
+                        <label for="category" class="block text-gray-700 font-medium mb-2">Nama Kategori</label>
+                        <input type="text" id="category" name="category" value="{{$data->category_name}}" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-400" required>
+                    </div>
 
-            </style>
-            <form action="{{url('update_category',$data->id)}}" method="post">
-                @csrf
-                <input type="text" name="category" value="{{$data->category_name}}">
-                <button type="submit" class="bg-blue-800 text-white px-4 py-2 rounded hover:bg-blue-700" value="Update Category">Update Kategori</button>
-            </form>
+                    <button type="submit" class="bg-blue-800 text-white px-6 py-2 rounded-lg hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-400">
+                        Update Kategori
+                    </button>
+                </form>
+            </div>
 
-
-        </div>
+        </main>
+    </div>
+</body>
+</html>
