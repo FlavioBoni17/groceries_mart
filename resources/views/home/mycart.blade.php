@@ -28,12 +28,19 @@
     color: white;
     font-size: 20px;
     font-weight: bold;
-    background-color: black;
+    background-color: black ;
   }
 
   td
   {
     border: 1px solid skyblue;
+  }
+
+  .cart_value
+  {
+    text-align: center;
+    margin-bottom: 70px;
+    padding: 18px;
   }
   </style>
 
@@ -53,7 +60,12 @@
             <th>Judul Produk</th>
             <th>Harga</th>
             <th>Gambar</th>
+            <th>Hapus</th>
         </tr>
+
+        @php
+            $value = 0;    
+        @endphp
         @foreach ($cart as $cart)
             
         <tr>
@@ -62,9 +74,20 @@
             <td>
                 <img width="150" src="/products/{{ $cart->product->image }}" alt="">
             </td>
+            <td>
+                <a class="bg-red-600 text-white px-4 py-2 rounded hover:bg-red-700" href="{{url('delete_cart', $cart->id) }}">Hapus</a>
+            </td>
         </tr>
+
+        @php
+            $value = $value + $cart->product->price;
+        @endphp
         @endforeach
     </table>
+</div>
+
+<div class="cart_value">
+    <h3>Jumlah Total Keranjang : Rp.{{ $value }}</h3>
 </div>
 
 
