@@ -7,40 +7,34 @@
     <script src="https://cdn.tailwindcss.com"></script>
 
     <style type="text/css">
-    .div_deg
-    {
+    .div_deg {
         display: flex;
         justify-content: center;
-        align-items: center; 
+        align-items: center;
     }
 
-    label 
-    {
+    label {
         display: inline-block;
         width: 200px;
         padding: 20px;
     }
 
-    input[type="text"]
-    {
+    input[type="text"], input[type="number"] {
         width: 300px;
         height: 60px;
     }
 
-    textarea
-    {
+    textarea {
         width: 450px;
         height: 100px;
     }
-
     </style>
-
 </head>
 <body class="bg-blue-50 font-sans">
     <div class="flex h-screen">
         
         {{-- Sidebar --}}
-        <aside class="w-64 bg-blue-900 text-white flex flex-col">
+        <aside class="w-64 bg-blue-900 text-white flex flex-col overflow-y-auto max-h-screen">
             <div class="p-4 text-center text-2xl font-bold border-b border-blue-700">
                 Admin Area
             </div>
@@ -71,13 +65,10 @@
             </nav>
         </aside>
 
-        
         <main class="flex-grow p-6 relative">
             
             <header class="flex justify-between items-center mb-6">
                 <h1 class="text-2xl font-bold text-blue-900">Update Produk</h1>
-                <div class="flex items-center space-x-4">
-                </div>
                 <form method="POST" action="{{ route('logout') }}" class="absolute top-6 right-6">
                     @csrf
                     <button type="submit" class="bg-blue-800 text-white px-4 py-2 rounded hover:bg-blue-700">Logout</button>
@@ -133,8 +124,6 @@
 
                 </form>
             </div>
-            
-
         </main>
     </div>
 </body>
