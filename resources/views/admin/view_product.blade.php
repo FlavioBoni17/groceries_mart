@@ -94,6 +94,7 @@
                         <th>Harga</th>
                         <th>qty</th>
                         <th>Image</th>
+                        <th>Edit</th>
                         <th>Hapus</th>
                     </tr>
 
@@ -107,6 +108,9 @@
                         <td>{{ $products->quantity }}</td>
                         <td>
                             <img height="120" width="120" src="products/{{ $products->image }}">
+                        </td>
+                        <td>
+                            <a class="bg-green-600 text-white px-4 py-2 rounded hover:bg-green-700" href="{{ url('update_product', $products->id) }}">Edit</a>
                         </td>
                         <td>
                             <a class="bg-red-600 text-white px-4 py-2 rounded hover:bg-red-700" onclick="confirmation(event)"  href="{{ url('delete_product', $products->id) }}">Hapus</a>
