@@ -37,14 +37,6 @@
                 <i class="fa-solid fa-eye mx-3"></i>
                 <a href="{{ url('view_product') }}" class="block px-4 py-2">Lihat Produk</a>
             </li>
-            <li class="hover:bg-blue-700 flex items-center">
-                <i class="fa-solid fa-shopping-cart mx-3"></i>
-                <a href="#" class="block px-4 py-2">Pesanan</a>
-            </li>
-            <li class="hover:bg-blue-700 flex items-center">
-                <i class="fa-solid fa-cog mx-3"></i>
-                <a href="#" class="block px-4 py-2">Settings</a>
-            </li>
         </ul>
     </nav>
 </aside>
@@ -57,20 +49,14 @@
             <header class="flex justify-between items-center mb-6">
                 <h1 class="text-2xl font-bold text-blue-900">Dashboard</h1>
                 <div class="flex items-center space-x-4">
-                    <div class="relative">
-                        <input type="text" placeholder="Search..." class="px-4 py-2 rounded border border-gray-300">
-                        <span class="absolute inset-y-0 right-2 flex items-center text-gray-500">
-                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" class="w-5 h-5">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 16l-4 4m0 0l4-4m-4 4h16m-6-9a9 9 0 11-18 0 9 9 0 0118 0z" />
-                            </svg>
-                        </span>
-                    </div>
-                    <button class="bg-blue-700 text-white px-4 py-2 rounded hover:bg-blue-600">Search</button>
                 </div>
                 <form method="POST" action="{{ route('logout') }}" class="absolute top-6 right-6">
-                    @csrf
-                    <button type="submit" class="bg-blue-800 text-white px-4 py-2 rounded hover:bg-blue-700">Logout</button>
+                   @csrf
+                   <button type="submit" class="bg-blue-800 text-white px-4 py-2 rounded hover:bg-blue-700 flex items-center">
+                   <i class="fa-solid fa-sign-out-alt mr-2"></i> Logout
+                   </button>
                 </form>
+
             </header>
 
             
