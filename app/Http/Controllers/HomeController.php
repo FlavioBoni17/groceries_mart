@@ -89,6 +89,17 @@ class HomeController extends Controller
         $data->save();
         toastr()->timeOut(10000)->closeButton()->addSuccess('Produk Berhasil Ditambahkan ke Keranjang');
         return redirect()->back();
+    }
 
+    public function mycart()
+    {
+        if (Auth::id())
+        {
+            $user = Auth::user();
+            $userid = $user->id;
+            $count = Cart::where('user_id', $userid)->count();
+            $cart = Cart::where('user_id', $userid)->get();
+        }
+        return view('home.mycart', compact('count', 'cart'));
     }
 }
