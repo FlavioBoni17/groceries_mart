@@ -146,4 +146,12 @@ class HomeController extends Controller
                 toastr()->timeOut(10000)->closeButton()->addSuccess('Pemesanan Produk Berhasil');
                 return redirect()->back();
     }
+
+    public function myorders()
+    {
+        $user = Auth::user()->id;
+        $count = Cart::where('user_id', $user)->get()->count();
+        $order = Order::where('user_id', $user)->get();
+        return view('home.order', compact('count', 'order'));
+    }
 }

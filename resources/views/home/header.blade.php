@@ -29,17 +29,21 @@
             </div>
 
 
-            <!-- Keranjang -->
+            {{-- <!-- Keranjang -->
             <a href="{{url('/cart')}}" class="relative text-white hover:text-yellow-400">
                 <i class="fa fa-shopping-cart" aria-hidden="true"></i>
                 <span class="absolute -top-1 -right-2 bg-red-500 text-xs text-white w-5 h-5 flex items-center justify-center rounded-full">0</span>
-            </a>
+            </a> --}}
             <!-- Login -->
             @if (Route::has('login'))
                 @auth
 
+                <a href="{{ url('myorders') }}">
+                    Pesanan Saya
+                </a>
+
                 <a href="{{ url('mycart') }}">
-                    <i class="fa fa-shopping-bag" aria-hidden="true"></i>
+                    <i class="fa fa-shopping-cart" aria-hidden="true"></i>
                 [{{$count}}]    
                 </a>
 
