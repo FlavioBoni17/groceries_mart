@@ -146,4 +146,20 @@ class AdminController extends Controller
         return view('admin.order', compact('data'));
     }
 
+    public function on_the_way($id)
+    {
+        $data = Order::find($id);
+        $data->status = 'dalam perjalanan';
+        $data->save();
+        return redirect('/view_orders');
+    }
+
+    public function delivered($id)
+    {
+        $data = Order::find($id);
+        $data->status = 'terkirim';
+        $data->save();
+        return redirect('/view_orders');
+    }
+
 }

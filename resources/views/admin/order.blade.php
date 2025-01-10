@@ -67,7 +67,7 @@
                         <a href="{{ url('view_product') }}" class="block px-4 py-2">Lihat Produk</a>
                     </li>
                     <li class="hover:bg-blue-700 flex items-center">
-                        <i class="fa-solid fa-eye mx-3"></i>
+                        <i class="fa-solid fa-table mx-3"></i>
                         <a href="{{ url('view_orders') }}" class="block px-4 py-2">Pesanan</a>
                     </li>
                 </ul>
@@ -104,6 +104,7 @@
                     <th>Harga</th>
                     <th>Gambar</th>
                     <th>Status</th>
+                    <th>Ubah Status</th>
                 </tr>
 
                 @foreach ($data as $data)
@@ -117,7 +118,24 @@
                     <td>
                         <img width="150" src="products/{{ $data->product->image }}">
                     </td>
-                    <td>{{ $data->status }}</td>
+                    <td>
+
+                        @if($data->status == 'sedang diproses')
+                        <span style="color:red">{{ $data->status }}</span>
+
+                        @elseif($data->status == 'dalam perjalanan')
+                        <span style="color: blue">{{ $data->status }}</span>
+
+                        @else
+                        <span style="color:green">{{ $data->status }}</span>
+
+                        @endif
+
+                    </td>
+                    <td>
+                        <a class="bg-blue-600 text-white px-4 py-2 rounded hover:bg-blue-700" href="{{ url('on_the_way', $data->id) }}">Dalam Perjalanan</a>
+                        <a class="bg-green-600 text-white px-4 py-2 rounded hover:bg-green-700" href="{{ url('delivered', $data->id) }}">Terkirim</a>
+                    </td>
                 </tr>
 
                 @endforeach

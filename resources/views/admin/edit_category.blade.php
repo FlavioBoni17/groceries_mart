@@ -35,6 +35,10 @@
                         <i class="fa-solid fa-eye mx-3"></i>
                         <a href="{{ url('view_product') }}" class="block px-4 py-2">Lihat Produk</a>
                     </li>
+                    <li class="hover:bg-blue-700 flex items-center">
+                        <i class="fa-solid fa-table mx-3"></i>
+                        <a href="{{ url('view_orders') }}" class="block px-4 py-2">Pesanan</a>
+                    </li>
                 </ul>
             </nav>
         </aside>
