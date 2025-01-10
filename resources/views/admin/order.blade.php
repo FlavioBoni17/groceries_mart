@@ -3,9 +3,38 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Admin Dashboard</title>
+    <title>Pesanan</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+
+    <style type="text/css">
+    table
+    {
+        border: 2px solid skyblue;
+        text-align: center;
+    }
+    th
+    {
+        background-color: skyblue;
+        padding: 10px;
+        font-size: 18px;
+        font-weight: bold;
+        text-align: center;
+    }
+    .table_center
+    {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+    td
+    {
+        color: black;
+        padding: 10px;
+        border: 1px solid skyblue;
+    }
+    </style>
+
 </head>
 <body class="bg-blue-50 font-sans">
     <div class="flex h-screen">
@@ -48,7 +77,7 @@
         <main class="flex-grow p-6 relative">
             
             <header class="flex justify-between items-center mb-6">
-                <h1 class="text-2xl font-bold text-blue-900">Dashboard</h1>
+                <h1 class="text-2xl font-bold text-blue-900">Pesanan</h1>
                 <div class="flex items-center space-x-4">
                     {{-- Profile Picture and Name --}}
                     <div class="flex items-center space-x-2">
@@ -65,26 +94,56 @@
 
             </header>
 
-            <section class="grid grid-cols-4 gap-6 mb-6">
-                <div class="bg-white p-6 rounded shadow text-center">
-                    <h2 class="text-xl font-bold text-blue-900">Total Pengguna</h2>
-                    <p class="text-3xl font-bold text-blue-700">{{ $user }}</p>
-                </div>
-                <div class="bg-white p-6 rounded shadow text-center">
-                    <h2 class="text-xl font-bold text-blue-900">Total Produk</h2>
-                    <p class="text-3xl font-bold text-blue-700">{{ $product }}</p>
-                </div>
-                <div class="bg-white p-6 rounded shadow text-center">
-                    <h2 class="text-xl font-bold text-blue-900">Total Pesanan</h2>
-                    <p class="text-3xl font-bold text-blue-700">{{ $order }}</p>
-                </div>
-                <div class="bg-white p-6 rounded shadow text-center">
-                    <h2 class="text-xl font-bold text-blue-900">Total Terkirim</h2>
-                    <p class="text-3xl font-bold text-blue-700">{{ $delivered }}</p>
-                </div>
-            </section>
+            <div class="table_center">
+            <table>
+                <tr>
+                    <th>Nama Pelanggan</th>
+                    <th>Alamat</th>
+                    <th>Telepon</th>
+                    <th>Judul Produk</th>
+                    <th>Harga</th>
+                    <th>Gambar</th>
+                    <th>Status</th>
+                    <th>Ubah Status</th>
+                    <th>Print PDF</th>
+                </tr>
 
-           
+                @foreach ($data as $data)
+
+                <tr>
+                    <td>{{ $data->name }}</td>
+                    <td>{{ $data->rec_address }}</td>
+                    <td>{{ $data->phone }}</td>
+                    <td>{{ $data->product->title }}</td>
+                    <td>{{ $data->product->price }}</td>
+                    <td>
+                        <img width="150" src="products/{{ $data->product->image }}">
+                    </td>
+                    <td>
+
+                        @if($data->status == 'sedang diproses')
+                        <span style="color:red">{{ $data->status }}</span>
+
+                        @elseif($data->status == 'dalam perjalanan')
+                        <span style="color: blue">{{ $data->status }}</span>
+
+                        @else
+                        <span style="color:green">{{ $data->status }}</span>
+
+                        @endif
+
+                    </td>
+                    <td>
+                        <a class="bg-blue-600 text-white px-4 py-2 rounded hover:bg-blue-700" href="{{ url('on_the_way', $data->id) }}">D</a>
+                        <a class="bg-green-600 text-white px-4 py-2 rounded hover:bg-green-700" href="{{ url('delivered', $data->id) }}">Terkirim</a>
+                    </td>
+                    <td><a class="bg-gray-600 text-white px-4 py-2 rounded hover:bg-gray-700" href="{{ url('print_pdf', $data->id) }}">Print PDF</a></td>
+                </tr>
+
+                @endforeach
+            </table>
+            </div>
+
         </main>
     </div>
 </body>
