@@ -19,7 +19,7 @@
                 <ul>
                     <li class="hover:bg-blue-700 flex items-center">
                         <i class="fa-solid fa-home mx-3"></i>
-                        <a href="{{ url('admin/dashboard') }}" class="block px-4 py-2">Home</a>
+                        <a href="{{ url('admin/dashboard') }}" class="block px-4 py-2">Beranda</a>
                     </li>
                     <li class="hover:bg-blue-700 flex items-center">
                         <i class="fa-solid fa-list mx-3"></i>
@@ -67,62 +67,24 @@
 
             <section class="grid grid-cols-4 gap-6 mb-6">
                 <div class="bg-white p-6 rounded shadow text-center">
-                    <h2 class="text-xl font-bold text-blue-900">Pengguna</h2>
-                    <p class="text-3xl font-bold text-blue-700">1,245</p>
+                    <h2 class="text-xl font-bold text-blue-900">Total Pengguna</h2>
+                    <p class="text-3xl font-bold text-blue-700">{{ $user }}</p>
                 </div>
                 <div class="bg-white p-6 rounded shadow text-center">
-                    <h2 class="text-xl font-bold text-blue-900">Produk</h2>
-                    <p class="text-3xl font-bold text-blue-700">342</p>
+                    <h2 class="text-xl font-bold text-blue-900">Total Produk</h2>
+                    <p class="text-3xl font-bold text-blue-700">{{ $product }}</p>
                 </div>
                 <div class="bg-white p-6 rounded shadow text-center">
-                    <h2 class="text-xl font-bold text-blue-900">Pesanan</h2>
-                    <p class="text-3xl font-bold text-blue-700">528</p>
+                    <h2 class="text-xl font-bold text-blue-900">Total Pesanan</h2>
+                    <p class="text-3xl font-bold text-blue-700">{{ $order }}</p>
                 </div>
                 <div class="bg-white p-6 rounded shadow text-center">
-                    <h2 class="text-xl font-bold text-blue-900">Pendapatan</h2>
-                    <p class="text-3xl font-bold text-blue-700">Rp. 20,000,000</p>
+                    <h2 class="text-xl font-bold text-blue-900">Total Terkirim</h2>
+                    <p class="text-3xl font-bold text-blue-700">{{ $delivered }}</p>
                 </div>
             </section>
 
-            <section>
-                <h2 class="text-xl font-bold text-blue-900 mb-4">Pesanan terbaru</h2>
-                <div class="bg-white rounded shadow overflow-auto">
-                    <table class="w-full text-left border-collapse">
-                        <thead>
-                            <tr class="bg-blue-200">
-                                <th class="px-4 py-2 border">Order ID</th>
-                                <th class="px-4 py-2 border">kostumer</th>
-                                <th class="px-4 py-2 border">tanggal</th>
-                                <th class="px-4 py-2 border">Jumlah</th>
-                                <th class="px-4 py-2 border">Statu</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <tr>
-                                <td class="px-4 py-2 border">#1024</td>
-                                <td class="px-4 py-2 border">Agus</td>
-                                <td class="px-4 py-2 border">2024-12-25</td>
-                                <td class="px-4 py-2 border">Rp. 100,000</td>
-                                <td class="px-4 py-2 border text-green-600">komplit</td>
-                            </tr>
-                            <tr>
-                                <td class="px-4 py-2 border">#1025</td>
-                                <td class="px-4 py-2 border">gani</td>
-                                <td class="px-4 py-2 border">2024-12-26</td>
-                                <td class="px-4 py-2 border">Rp. 200,000</td>
-                                <td class="px-4 py-2 border text-yellow-600">menunggu</td>
-                            </tr>
-                            <tr>
-                                <td class="px-4 py-2 border">#1026</td>
-                                <td class="px-4 py-2 border">Nanas</td>
-                                <td class="px-4 py-2 border">2024-12-26</td>
-                                <td class="px-4 py-2 border">Rp. 250,000</td>
-                                <td class="px-4 py-2 border text-red-600">gagal</td>
-                            </tr>
-                        </tbody>
-                    </table>
-                </div>
-            </section>
+           
         </main>
     </div>
 </body>

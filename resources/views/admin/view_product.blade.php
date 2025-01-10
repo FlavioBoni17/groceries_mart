@@ -121,7 +121,7 @@
                 <ul>
                     <li class="hover:bg-blue-700 flex items-center">
                         <i class="fa-solid fa-home mx-3"></i>
-                        <a href="{{ url('admin/dashboard') }}" class="block px-4 py-2">Home</a>
+                        <a href="{{ url('admin/dashboard') }}" class="block px-4 py-2">Beranda</a>
                     </li>
                     <li class="hover:bg-blue-700 flex items-center">
                         <i class="fa-solid fa-list mx-3"></i>
