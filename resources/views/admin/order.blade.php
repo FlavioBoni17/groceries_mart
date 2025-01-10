@@ -105,6 +105,7 @@
                     <th>Gambar</th>
                     <th>Status</th>
                     <th>Ubah Status</th>
+                    <th>Print PDF</th>
                 </tr>
 
                 @foreach ($data as $data)
@@ -133,9 +134,10 @@
 
                     </td>
                     <td>
-                        <a class="bg-blue-600 text-white px-4 py-2 rounded hover:bg-blue-700" href="{{ url('on_the_way', $data->id) }}">Dalam Perjalanan</a>
+                        <a class="bg-blue-600 text-white px-4 py-2 rounded hover:bg-blue-700" href="{{ url('on_the_way', $data->id) }}">D</a>
                         <a class="bg-green-600 text-white px-4 py-2 rounded hover:bg-green-700" href="{{ url('delivered', $data->id) }}">Terkirim</a>
                     </td>
+                    <td><a class="bg-gray-600 text-white px-4 py-2 rounded hover:bg-gray-700" href="{{ url('print_pdf', $data->id) }}">Print PDF</a></td>
                 </tr>
 
                 @endforeach
